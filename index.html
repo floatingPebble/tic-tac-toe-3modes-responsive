@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+    <title>TicTacToe</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <article class="next-player">
+            <p class="on-turn-label">ON TURN:</p>
+            <p class="on-turn"></p>
+        </article>
+        <article class="tic-tac-toe-grid">
+            <p class="single-field hor1 ver1 dia1" id="one"></p>
+            <p class="single-field hor1 ver2" id="two"></p>
+            <p class="single-field hor1 ver3 dia2" id="three"></p>
+            <p class="single-field hor2 ver1" id="four"></p>
+            <p class="single-field ver2 hor2 dia1 dia2" id="five"></p>
+            <p class="single-field hor2 ver3" id="six"></p>
+            <p class="single-field hor3 ver1 dia2" id="seven"></p>
+            <p class="single-field hor3 ver2" id="eight"></p>
+            <p class="single-field hor3 ver3 dia1" id="nine"></p>
+        </article>
+        <p class="msg-board"></p>
+        <div class="buttons">
+            <button onclick="chooseMode('pvp')" class="pvp play-btn">PvP</button>
+            <button onclick="chooseMode('pvc')" class="pvc play-btn">PvC</button>
+            <button onclick="chooseMode('cvc')" class="cvc play-btn">CvC</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html {
+    height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--BG-COLOR);
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+    isolation: isolate;
+}
+
+:root {
+    --BG-COLOR: black;
+    --GRID-COLOR: gray;
+    --SIGN-COLOR: white;
+    --BG-VERY-TRANSPARENT-COLOR: rgba(151, 151, 151, 0.1);
+    --BG-TRANSPARENT-COLOR: rgba(151, 151, 151, 0.7);
+    --LESS-TRANSPARENT-BG-COLOR: rgba(151, 151, 151, 0.9);
+    --OVERLAY-FONT-COLOR: black;
+    --VICTORY-COMBO-COLOR: green;
+    --VICTORY-COMBO-SHADOW: 0 0 6px rgb(0, 255, 0);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.next-player {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    text-align: left;
+}
+
+.on-turn-label {
+    color: var(--BG-TRANSPARENT-COLOR);
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 0;
+}
+
+.on-turn {
+    font-family: 'Bungee Spice', cursive;
+    font-size: 22px;
+    margin-top: 8px;
+}
+
+.tic-tac-toe-grid {
+    display: grid;
+    width: fit-content;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.single-field {
+    height: min(180px, 25vw);
+    width: min(180px, 25vw);
+    font-size: min(15vw, 140px);
+    line-height: 120px;
+    color: var(--SIGN-COLOR);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.single-field:hover {
+    cursor: pointer;
+}
+
+#one,
+#two,
+#three {
+    border-bottom: 5px solid var(--GRID-COLOR);
+}
+
+#seven,
+#eight,
+#nine {
+    border-top: 5px solid var(--GRID-COLOR);
+}
+
+#two,
+#five,
+#eight {
+    border-right: 5px solid var(--GRID-COLOR);
+    border-left: 5px solid var(--GRID-COLOR);
+}
+
+.msg-board {
+    font-family: 'Bungee Spice', cursive;
+    color: var(--OVERLAY-FONT-COLOR);
+    position: absolute;
+    font-size: max(9vw, 26px);
+    width: 100%;
+    height: fit-content;
+    top: 0;
+    bottom: 0;
+    margin-block: auto;
+    background-color: var(--BG-TRANSPARENT-COLOR);
+    box-shadow: 0 0 10px 1px var(--BG-TRANSPARENT-COLOR);
+}
+
+.buttons {
+    position: absolute;
+    width: 100%;
+
+}
+
+.play-btn {
+    width: 20%;
+    font-size: min(8vw, 64px);
+    border: none;
+    background-color: var(--BG-TRANSPARENT-COLOR);
+    box-shadow: 0 0 10px 4px var(--LESS-TRANSPARENT-BG-COLOR);
+    color: var(--OVERLAY-FONT-COLOR);
+    font-family: 'Bungee Spice', cursive;
+    margin-inline: 2%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.play-btn:hover {
+    box-shadow: none;
+    background-color: var(--LESS-TRANSPARENT-BG-COLOR);
+    border-radius: 4px;
+    transition: 0.5s;
+}
+
+.hidden {
+    display: none;
+}
+
+.green {
+    color: var(--VICTORY-COMBO-COLOR);
+    text-shadow: var(--VICTORY-COMBO-SHADOW);
+}
+
+@media screen and (max-width: 1000px) {
+    .next-player {
+        top: -50px;
+        left: 6px;
+        text-align: left;
+    }
+}
